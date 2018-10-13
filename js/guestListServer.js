@@ -32,6 +32,7 @@ function createGuestDataStructure(guestsDict){
 
 window.addEventListener('DOMContentLoaded', function(){
 	createGuestDataStructure(guestsByMember);
+	// document.getElementById('memberNameInput').addEventListener()
 
 });
 
@@ -75,8 +76,20 @@ function populateGuestsOfMember(member){
 		var buttonHTML = document.createElement("button");
 		buttonHTML.setAttribute("type","button");
 		buttonHTML.setAttribute("class","btn btn-primary");
-		buttonHTML.addEventListener("click", function (){
-			checkInMembersGuest(member,name);
+
+		buttonHTML.setAttribute("id","@:"+member+"#:"+name);
+
+		buttonHTML.addEventListener("mouseup", function (event){
+			buttonHTML = event.target;
+			buttonIDString = buttonHTML.getAttribute("id");
+			guestNameIndex = buttonIDString.indexOf("#:");
+			memberName = buttonIDString.substring(2,guestNameIndex);
+			guestName = buttonIDString.substring(guestNameIndex+2);
+			console.log("-------out--------");
+			console.log("memberName",memberName);
+			console.log("guestName",guestName);			
+
+			checkInMembersGuest(memberName,guestName);
 		});
 
 		if (!checkedin){
@@ -91,7 +104,7 @@ function populateGuestsOfMember(member){
 		}
 		guestHTML.appendChild(buttonHTML);
 		console.log(guestHTML);
-		
+
 		document.getElementById("guestList").appendChild(guestHTML);	
 	}
 
