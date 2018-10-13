@@ -12,6 +12,7 @@ function checkInMembersGuest(member,guestname){
 
 	membersGuests = guestsByMemberWithState[member];
 	membersGuests[guestname].checkedin = true;
+	incrementGuestCount();
 }
 
 function createGuestDataStructure(guestsDict){
@@ -32,7 +33,18 @@ function createGuestDataStructure(guestsDict){
 
 window.addEventListener('DOMContentLoaded', function(){
 	createGuestDataStructure(guestsByMember);
-	// document.getElementById('memberNameInput').addEventListener()
+	document.getElementById('memberNameInput').addEventListener("keypress",
+		function (event){
+			if (event != null){
+				keyPressed = event.key;
+				if (keyPressed != null && keyPressed == "Enter"){
+					//extract input
+					var inputMemberName = document.getElementById('memberNameInput').value;
+					populateGuestsOfMember(inputMemberName);
+				}				
+			}
+
+		});
 
 });
 
@@ -90,6 +102,10 @@ function populateGuestsOfMember(member){
 			console.log("guestName",guestName);			
 
 			checkInMembersGuest(memberName,guestName);
+			buttonHTML.classList.remove("btn-success");			
+			buttonHTML.classList.add("disabled");
+			buttonHTML.innerHTML = "Checked-in";
+
 		});
 
 		if (!checkedin){
