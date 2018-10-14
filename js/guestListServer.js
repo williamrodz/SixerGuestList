@@ -48,16 +48,26 @@ function createGuestDataStructure(guestsDict){
 window.addEventListener('DOMContentLoaded', function(){
 	createGuestDataStructure(guestsByMember);
 	loadMemberListToAutoComplete(Object.keys(guestsByMember));
-	document.getElementById('memberNameInput').addEventListener("keypress",
+	document.getElementById('memberNameInput').addEventListener("keyup",
 		function (event){
-			if (event != null){
-				keyPressed = event.key;
-				if (keyPressed != null && keyPressed == "Enter"){
-					//extract input
-					var inputMemberName = document.getElementById('memberNameInput').value;
-					populateGuestsOfMember(inputMemberName);
-				}				
+
+			var currentMemberInput = document.getElementById("memberNameInput").value;
+			console.log(currentMemberInput);
+
+			if (Object.keys(guestsByMember).includes(currentMemberInput)){
+				console.log("YES");
+				populateGuestsOfMember(currentMemberInput);
 			}
+
+
+			// if (event != null){
+			// 	keyPressed = event.key;
+			// 	if (keyPressed != null && keyPressed == "Enter"){
+			// 		//extract input
+			// 		var inputMemberName = document.getElementById('memberNameInput').value;
+			// 		populateGuestsOfMember(inputMemberName);
+			// 	}				
+			// }
 
 		});
 

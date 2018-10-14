@@ -33,12 +33,14 @@
     <form>
      <div class="form-group guestNameInput">
        <label>Member Name</label>
+       <datalist id="memberList">
+       </datalist>       
        <input type="text" class="form-control" id="memberNameInput" placeholder="John Danforth" list="memberList">
      </div>  
    </form>    
 
 
-    <form>
+   <form>
      <div class="form-group guestNameInput">
        <label for="exampleInputEmail1">Name of Guest</label>
        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nay nay">
@@ -47,19 +49,17 @@
    </form>
 
    <div class="list-group" id="guestList">
-  </div>
-
-<datalist id="memberList">
-</datalist>
-
-<input type="text" placeholder="type here..." list="myList" autofocus>  
+   </div>
 
 
 
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
-</body>
-</html>
+
+
+
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <!-- Include all compiled plugins (below), or include individual files as needed -->
+   <script src="js/bootstrap.min.js"></script>
+ </body>
+ </html>
