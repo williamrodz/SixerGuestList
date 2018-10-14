@@ -24,7 +24,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body id="pageBody">
+  <body class="pageBody">
     <h1>Number Six Guest List</h1>
     <h2>Checked-in Guests</h2>
     <h2 id="currentGuestCount">0</h2>
@@ -33,7 +33,7 @@
     <form>
      <div class="form-group guestNameInput">
        <label>Member Name</label>
-       <input type="text" class="form-control" id="memberNameInput" placeholder="John Danforth">
+       <input type="text" class="form-control" id="memberNameInput" placeholder="John Danforth" list="memberList">
      </div>  
    </form>    
 
@@ -45,16 +45,14 @@
        <small id="emailHelp" class="form-text text-muted">Only registered guests appear hear</small>
      </div>  
    </form>
+
    <div class="list-group" id="guestList">
-<!--     <a href="#" class="list-group-item list-group-item-action">
-      Cras justo odio
-    <button type="button" class="btn btn-primary"> Check-in</button>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-    <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-    <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a> -->
-  </div>    
+  </div>
+
+<datalist id="memberList">
+</datalist>
+
+<input type="text" placeholder="type here..." list="myList" autofocus>  
 
 
 

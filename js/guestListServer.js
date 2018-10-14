@@ -6,6 +6,20 @@ var defaultInitialGuestCount = 0;
 var currentGuestCount = defaultInitialGuestCount;
 
 
+function loadMemberListToAutoComplete(memberList){
+
+	dataList = document.getElementById("memberList");
+	console.log(dataList);
+	for (var i=0; i<memberList.length; i++){
+		console.log("adding");
+		memberString = memberList[i];
+		optionHTML = document.createElement("option");
+		optionHTML.setAttribute("value",memberString);
+		dataList.appendChild(optionHTML);	
+	}
+
+}
+
 function checkInMembersGuest(member,guestname){
 	console.log("member:",member);
 	console.log("guestname:",guestname);
@@ -33,6 +47,7 @@ function createGuestDataStructure(guestsDict){
 
 window.addEventListener('DOMContentLoaded', function(){
 	createGuestDataStructure(guestsByMember);
+	loadMemberListToAutoComplete(Object.keys(guestsByMember));
 	document.getElementById('memberNameInput').addEventListener("keypress",
 		function (event){
 			if (event != null){
@@ -87,7 +102,7 @@ function populateGuestsOfMember(member){
 
 		var buttonHTML = document.createElement("button");
 		buttonHTML.setAttribute("type","button");
-		buttonHTML.setAttribute("class","btn btn-primary");
+		buttonHTML.setAttribute("class","btn btn-primary checkInButton");
 
 		buttonHTML.setAttribute("id","@:"+member+"#:"+name);
 
